@@ -39,12 +39,12 @@ async function run() {
 
     app.post("/spots", async (req, res) => {
       const insert = await spots.insertOne(req.body);
-      console.log(JSON.stringify(insert));
+
       res.send(JSON.stringify(insert));
     });
     app.get("/spots", async (req, res) => {
       const data = await spots.find({}).sort({ _id: -1 }).limit(6).toArray();
-      console.log(JSON.stringify(data));
+
       res.send(JSON.stringify(data));
     });
     app.get("/spots/all", async (req, res) => {
@@ -62,13 +62,13 @@ async function run() {
     app.get("/spots/:id", async (req, res) => {
       const id = req.params.id;
       const data = await spots.findOne({ _id: new ObjectId(id) });
-      console.log(JSON.stringify(data));
+
       res.send(JSON.stringify(data));
     });
     app.delete("/spots/:id", async (req, res) => {
       const id = req.params.id;
       const data = await spots.deleteOne({ _id: new ObjectId(id) });
-      console.log(JSON.stringify(data));
+
       res.send(JSON.stringify(data));
     });
     app.put("/spots/:id", async (req, res) => {
@@ -177,7 +177,6 @@ async function run() {
           },
         ]);
 
-        console.log(JSON.stringify(data));
         res.send(JSON.stringify(data));
       }
 
