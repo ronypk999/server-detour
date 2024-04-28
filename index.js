@@ -5,7 +5,7 @@ require("dotenv").config();
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173/", "https://detour-ronypk999.web.app/"],
+    origin: ["http://localhost:5173", "https://detour-ronypk999.web.app"],
     credentials: true,
     optionSuccessStatus: 200,
   })
